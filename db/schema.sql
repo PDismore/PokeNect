@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS pokenect_db;
+
+CREATE DATABASE pokenect_db;
