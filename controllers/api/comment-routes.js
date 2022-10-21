@@ -3,7 +3,7 @@ const { User, Post, Comment } = require("../../models");
 
 router.get('/', (req, res) => {
     Comment.findAll()
-    .then(userDbData => res.json(userDbData))
+    .then(commentDbData => res.json(commentDbData))
         .catch(err => {
             console.log(err),
                 res.status(500).json(err)
@@ -57,12 +57,12 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-        .then(dbUserData => {
-            if (!dbUserData) {
+        .then(commentDbData => {
+            if (!commentDbData) {
                 res.status(404).json({ message: 'No comment found with this id' });
                 return;
             }
-            res.json(dbUserData);
+            res.json(commentDbData);
         })
         .catch(err => {
             console.log(err);
