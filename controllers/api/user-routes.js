@@ -58,7 +58,7 @@ router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
-            id: true
+            id: req.params.id
         }
     })
     .then(dbUserData => {
