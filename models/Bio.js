@@ -29,6 +29,13 @@ Bio.init({
       key: "id",
     },
   },
-});
+},
+{
+  sequelize,
+  freezeTableName: true,
+  underscored: true,
+  modelName: "bio",
+}
+);
 
 module.exports = Bio;
