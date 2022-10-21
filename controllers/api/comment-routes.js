@@ -1,16 +1,16 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require("../../models");
 
-router.get('/', (res, req) => {
+router.get('/', (req, res) => {
     Comment.findAll()
-        .then(commentDbData => res.json(commentDbData))
+    .then(userDbData => res.json(userDbData))
         .catch(err => {
             console.log(err),
                 res.status(500).json(err)
         })
 })
 
-router.get('/:id', (res, req) => {
+router.get('/:id', (req, res) => {
     Comment.findOne({
         where: {
             id: req.params.id
@@ -37,7 +37,7 @@ router.get('/:id', (res, req) => {
         })
 })
 
-router.post('/', (res, req) => {
+router.post('/', (req, res) => {
     Comment.create({
         comment_text: req.body.comment_text,
         user_id: req.body.user_id,
@@ -51,7 +51,7 @@ router.post('/', (res, req) => {
 })
 
 
-router.delete('/:id', (res, req) => {
+router.delete('/:id', (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id
