@@ -19,7 +19,7 @@
   /* Create two unequal columns that floats next to each other */
   /* Left column */
   .leftcolumn {
-    /* float: left; */
+    float: left;
     width: 75%;
   }
   
@@ -28,6 +28,11 @@
     float: left;
     width: 25%;
     padding-left: 20px;
+  }
+
+  .postcolumn {
+    /* margin: 0 20 0 50; */
+    padding: 20px;
   }
   
   /* User Avatar/ favorites test styling */
