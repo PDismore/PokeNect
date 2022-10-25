@@ -30,6 +30,15 @@ User.init(
     profile_pic: {
       type: DataTypes.STRING,
     },
+    about_me: {
+      type: DataTypes.STRING(255),
+    },
+    fav_pokemon: {
+      type: DataTypes.STRING(20),
+    },
+    fav_game: {
+      type: DataTypes.STRING(20),
+    },
   },
   {
     hooks: {

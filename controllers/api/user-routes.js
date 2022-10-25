@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post, Bio } = require("../../models");
+const { User, Post } = require("../../models");
 
 router.get("/", (req, res) => {
   //COME BACK AND EXCLUDE PASSWORD IN RESPONSE
@@ -16,16 +16,6 @@ router.get("/:id", (req, res) => {
       {
         model: Post,
         attributes: ["id", "post_body", "created_at"],
-      },
-      {
-        model: Bio,
-        attributes: [
-          "id",
-          "about_me",
-          "profile_pic",
-          "fav_pokemon",
-          "fav_game",
-        ],
       },
     ],
     where: {
