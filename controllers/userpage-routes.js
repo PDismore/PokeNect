@@ -1,32 +1,41 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Post, User, Comment } = require("../models");
+const { Post, User } = require("../models");
 
 router.get("/:id", (req, res) => {
-  Post.findAll({
+  User.findOne({
     where: {
       id: req.params.id,
     },
     include: [
       {
-        model: User,
+        model: Post,
         attributes: [
-          "username",
-          "profile_pic",
-          "about_me",
-          "fav_pokenon",
-          "fav_game",
+          "post_body",
+          "post_title",
+          "createdAt"
         ],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
       },
     ],
   })
-    .then((postDbData) => {
-      const posts = postDbData.map((post) => post.get({ plain: true }));
-      res.render("userpage", { posts, loggedIn: req.session.loggedIn });
+  .then((userDbData) => {
+      // console.log(userDbData)
+      if (!userDbData) {
+        res.status(404).json({ message: "post not found" });
+        return;
+      }
+      const user = userDbData.get({ plain: true });
+      console.log(user)
+      res.render("userpage", { user, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err), res.status(500).json(err);
     });
 });
+
 
 module.exports = router;
