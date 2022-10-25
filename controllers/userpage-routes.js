@@ -14,7 +14,7 @@ router.get("/:id", (req, res) => {
           "username",
           "profile_pic",
           "about_me",
-          "fav_pokenon",
+          "fav_pokemon",
           "fav_game",
         ],
       },
