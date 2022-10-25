@@ -10,7 +10,13 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: User,
-        attributes: ["username"],
+        attributes: [
+          "username",
+          "profile_pic",
+          "about_me",
+          "fav_pokenon",
+          "fav_game",
+        ],
       },
     ],
   })
