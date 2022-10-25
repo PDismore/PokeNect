@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/css/styles.css">
+ 
+    <!-- Background image  -->
+    <style>
+        body {
+            background-image: url('../public/images/TestBackground.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        </style>
+    <title >PokéNect - User</title>
+  </head>
+  <body>
+
+
+    <!--  navbar that becomes vertical on small screens -->
+<nav class="navbar navbar-expand-sm bg-dark">
+
+  <!-- Logo/ Maybe user avatar? -->
+    <a class="navbar-brand" href="#">
+        <img src= "../public/images/TestProfileImage.jpg" alt="Logo" style="width:40px;">
+      </a>
+<!-- Search bar/ button -->
+    <form class="form-inline" action="/action_page.php">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+
+    <!-- Login Button -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Link 2</a>
+      </li> -->
+    </ul>
+  </nav>
+
+<!-- Header -->
+  <div class="header">
+    <h1>PokéNect</h1>
+  </div>
+
+  <!-- User's Homepage Start -->
+  
+  <!-- Bio/ Avatar -->
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>PokeMans123</h2>
+        <h5>December 7, 2022</h5>
+        <div class="useravatar" style="height:100px; width: 100px;"></div>
+        <p>All about them battles and trades</p>
+        
+        <div class="card">
+          <h3>Favorites </h3>
+          <div class="favimg">Either an Image</div><br>
+          <div class="favimg">or</div><br>
+          <div class="favimg">String</div><br>
+          <div class="favimg">of the User's</div><br>
+          <div class="favimg">Favorite</div><br>
+          <div class="favimg">Pokemon</div>
+        </div>
+        
+        <div class="newpost">
+            <button>New Post</button>
+        </div>
+        <div class="followbutton">
+            <button>Follow</button>
+        </div>
+      </div>
+
+
+      <!-- User's Posts -->
+      <div class="card">
+        <h2>Another Day, another Trade </h2>
+        <h5>September 1, 2022</h5>
+        <div class="useravatar" style="height:25px; width: 25px;"></div>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </p>
+      </div>
+    </div>
+
+    <!-- Right side column -->
+    <div class="rightcolumn">
+
+      <!-- Other User Post Feed -->
+      <div class="card">
+        <h2>Another Day, another Trade </h2>
+        <h5>September 1, 2022</h5>
+        <div class="useravatar" style="height:25px; width: 25px;"></div>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </p>
+      </div>
+
+      <!-- Favorite Pokemon section -->
+      <div class="card">
+        <h3>Favorite <Game>
+        <Pokemon>
+        <Something></Something></h3>
+        <div class="favimg">Image</div><br>
+        <div class="favimg">Image</div><br>
+        <div class="favimg">Image</div>
+      </div>
+
+      <!-- Follow -->
+      <div class="card">
+        <h3>Follow Me</h3>
+        <p>Some text..</p>
+        <div class="followbutton">
+          <button type="button" class="btn btn-outline-dark btn-sm" style="height: 40px; width: 40px;">Follow</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="footer">
+    <h3>Brought to you by the MightySledgehammers!</h3>
+  </div>
+
+
+  </div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
