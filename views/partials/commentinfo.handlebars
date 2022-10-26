@@ -1,0 +1,12 @@
+
+<div class="comments">
+    {{#each this}}
+    <div class="card">
+        <h5>{{user.username}}</h5>
+        <div>{{createdAt}}</div>
+        {{!-- for user avatar --}}
+        {{!-- <div class="useravatar" style="height:25px; width: 25px;"></div> --}}
+        <p>{{comment_text}}</p>
+    </div>
+    {{/each}}
+</div>

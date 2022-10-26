@@ -20,16 +20,15 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/login", (req, res) =>{
-  if(req.session.loggedIn){
-    res.render("/")
-  return}
-  res.render("loginpage")
-})
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.render("/");
+    return;
+  }
+  res.render("loginpage");
+});
 
-
-
-router.get("/:id", (req, res) => {
+router.get("/post/:id", (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id,
@@ -37,7 +36,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
+        attributes: ["id", "comment_text", "createdAt"],
         include: {
           model: User,
           attributes: ["username"],
@@ -55,7 +54,7 @@ router.get("/:id", (req, res) => {
         return;
       }
       const post = postDbData.get({ plain: true });
-      res.render("single", { post, loggedIn: req.session.loggedIn });
+      res.render("single-post", { post, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err), res.status(500).json(err);
