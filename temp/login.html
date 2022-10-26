@@ -2,7 +2,7 @@
  <html>
      <head>
          <meta charset="utf-8">
-         <link href="card.css" rel="stylesheet">
+         <link href=".card.css" rel="stylesheet">
          <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
          <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
          <script
@@ -21,7 +21,7 @@
                  <div class="page-canvas">
                      <div class="signup-wrapper">
                          <h1>
-                             Join PokeNect Today!
+                             Welcome to PokeNect!
                          </h1>
                          <div class="t1-form signup " id="phx-signup-form">
                                  <div class="prompt name">
@@ -29,22 +29,48 @@
                                          <div class="sidetip">
                                              <p id="uiderror" role="alert" class="blank invalid error">Write a user id</p>
                                          </div>
-                                         <input type="text" placeholder="User Id" aria-required="true" maxlength="20" id="uid" class="">
+                                         <input type="text" placeholder="User Id" aria-required="true" maxlength="20" id="uid" class="loginId">
                                      </div>
                                  </div>
+
+                                 
 
                                  <div class="prompt password">
                                      <div data-fieldname="password" class="field">
                                          <div class="sidetip">
                                              <p id="passerror" role="alert" class="blank error">Please enter a password.</p>
                                          </div>
-                                         <input type="password" placeholder="Password" aria-required="true" id="password">
+                                         <input type="password" placeholder="Password" aria-required="true" id="password" class="loginPass">
                                      </div>
                                  </div>
                              </div>
+
+                             <div class="sign-up-box">
+                                <input type="submit" value="Login" id="submit_button" class="loginBtn EdgeButton EdgeButton--primary EdgeButton--large submit">
+                            </div>
+
+                             <div class="t1-form signup " id="phx-signup-form">
+                                <div class="prompt name">
+                                    <div data-fieldname="name" class="field">
+                                        <div class="sidetip">
+                                            <p id="uiderror" role="alert" class="blank invalid error">Write a user id</p>
+                                        </div>
+                                        <input type="text" placeholder="User Id" aria-required="true" maxlength="20" id="uid" class="createId">
+                                    </div>
+                                </div>
+
+                                <div class="prompt password">
+                                    <div data-fieldname="password" class="field">
+                                        <div class="sidetip">
+                                            <p id="passerror" role="alert" class="blank error">Please enter a password.</p>
+                                        </div>
+                                        <input type="password" placeholder="Password" aria-required="true" id="password" class="createPass">
+                                    </div>
+                                </div>
+                            </div>
                              <div class="doit">
                                  <div class="sign-up-box">
-                                     <input type="submit" value="Sign up" id="submit_button" class="signup EdgeButton EdgeButton--primary EdgeButton--large submit">
+                                     <input type="submit" value="Sign up" id="submit_button" class="signupBtn EdgeButton EdgeButton--primary EdgeButton--large submit">
                                  </div>
                              </div>
                          </div>
