@@ -5,7 +5,7 @@
             <h1>
                 Welcome to PokéNect!
             </h1>
-            <div class="t1-form signup " id="phx-signup-form">
+            <form class="t1-form loginForm " id="phx-signup-form">
                 <div class="prompt name">
                     <div data-fieldname="name" class="field">
                         <div class="sidetip">
@@ -26,14 +26,14 @@
                             class="loginPass">
                     </div>
                 </div>
-            </div>
+                <div class="sign-up-box">
+                    <input type="submit" value="Login" id="submit_button"
+                        class="loginBtn EdgeButton EdgeButton--primary EdgeButton--large submit">
+                </div>
+            </form>
 
-            <div class="sign-up-box">
-                <input type="submit" value="Login" id="submit_button"
-                    class="loginBtn EdgeButton EdgeButton--primary EdgeButton--large submit">
-            </div>
 
-            <div class="t1-form signup " id="phx-signup-form">
+            <form class="t1-form signupForm " id="phx-signup-form">
                 <div class="prompt name">
                     <div data-fieldname="name" class="field">
                         <div class="sidetip">
@@ -53,13 +53,15 @@
                             class="createPass">
                     </div>
                 </div>
-            </div>
-            <div class="doit">
-                <div class="sign-up-box">
-                    <input type="submit" value="Sign up" id="submit_button"
-                        class="signupBtn EdgeButton EdgeButton--primary EdgeButton--large submit">
+                <div class="doit">
+                    <div class="sign-up-box">
+                        <input type="submit" value="Sign up" id="submit_button"
+                            class="signupBtn EdgeButton EdgeButton--primary EdgeButton--large submit">
+                    </div>
+
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+<script src="/js/login.js"></script>
