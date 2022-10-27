@@ -13,10 +13,6 @@ router.get("/", (req, res) => {
   })
     .then((postDbData) => {
       const posts = postDbData.map((post) => post.get({ plain: true }));
-      console.log(
-        "====================================================================================="
-      );
-      console.log(req.session.user_id);
       res.render("homepage", {
         posts,
         loggedIn: req.session.loggedIn,
