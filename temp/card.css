@@ -10,13 +10,11 @@ body {
    
    
    .topbar {
-    background-image: url(../public/images/logo3.png);
+    padding: 65px;
+    font-size: 40px;
+    text-align: center;
+    background-image: url(../public/images/logo4.png); background-repeat: no-repeat;
     background-size: 100% 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    height: 60px;
-    position: relative;
-    width: 100%;
-    text-align:center;
    }
    
    body.segoe {
