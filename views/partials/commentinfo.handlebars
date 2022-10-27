@@ -2,8 +2,8 @@
 <div class="comments">
     {{#each this}}
     <div class="card">
-        <h5>{{user.username}}</h5>
-        <div>{{createdAt}}</div>
+        <a href="/user/{{user.id}}">{{user.username}}</a>
+        <div>{{format_date createdAt}}</div>
         {{!-- for user avatar --}}
         {{!-- <div class="useravatar" style="height:25px; width: 25px;"></div> --}}
         <p>{{comment_text}}</p>

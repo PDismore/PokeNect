@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["username", "id"],
       },
     ],
   })
@@ -43,12 +43,12 @@ router.get("/post/:id", (req, res) => {
         attributes: ["id", "comment_text", "createdAt"],
         include: {
           model: User,
-          attributes: ["username"],
+          attributes: ["username", "id"],
         },
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["username", "id"],
       },
     ],
   })
