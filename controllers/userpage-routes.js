@@ -26,7 +26,11 @@ router.get("/:id", (req, res) => {
       }
       const user = userDbData.get({ plain: true });
       console.log(user);
-      res.render("userpage", { user, loggedIn: req.session.loggedIn });
+      res.render("userpage", {
+        user,
+        loggedIn: req.session.loggedIn,
+        sessionId: req.session.user_id,
+      });
     })
     .catch((err) => {
       console.log(err), res.status(500).json(err);

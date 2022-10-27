@@ -13,7 +13,15 @@ router.get("/", (req, res) => {
   })
     .then((postDbData) => {
       const posts = postDbData.map((post) => post.get({ plain: true }));
-      res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+      console.log(
+        "====================================================================================="
+      );
+      console.log(req.session.user_id);
+      res.render("homepage", {
+        posts,
+        loggedIn: req.session.loggedIn,
+        sessionId: req.session.user_id,
+      });
     })
     .catch((err) => {
       console.log(err), res.status(500).json(err);
@@ -54,7 +62,11 @@ router.get("/post/:id", (req, res) => {
         return;
       }
       const post = postDbData.get({ plain: true });
-      res.render("single-post", { post, loggedIn: req.session.loggedIn });
+      res.render("single-post", {
+        post,
+        loggedIn: req.session.loggedIn,
+        sessionId: req.session.user_id,
+      });
     })
     .catch((err) => {
       console.log(err), res.status(500).json(err);
