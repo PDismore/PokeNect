@@ -1,3 +1,42 @@
+{{!-- Bio Edit Modal --}}
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Your Bio</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" >About Me</label>
+          <textarea type="text" id="orangeForm-name" class="form-control">{{user.about_me}}</textarea>
+          
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-email">Favorite Pokemon</label>
+          <input type="email" id="orangeForm-email" class="form-control " value="{{user.fav_pokemon}}">
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Favorite Game</label>
+          <input type="text" id="orangeForm-pass" class="form-control " value="{{user.fav_game}}">
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-deep-orange" >Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div data-aos="fade-up" class="row">
   <div class="leftcolumn">
     <div class="card">
@@ -12,19 +51,21 @@
       <div class="favimg">Favorite</div><br>
       <div class="favimg">Pokemon</div>
 
-      <form class="newpost" >
+      <form class="newpost">
         <p></p>
-        <input class="button" name = "titleName" type="text" placeholder="Title"><br>
-        <input class="button" name="postBody" type="text" placeholder="What's on your mind?"><br>
+        <input class="button" name="titleName" type="text" placeholder="Title"><br>
+        <textarea class="button postfield" name="postBody" type="text"
+          placeholder="What's on your mind?"></textarea><br>
+        {{!-- <input class="button postfield" name="postBody" type="text" placeholder="What's on your mind?"><br> --}}
         <button class="button">New Post</button>
       </form><br>
       <div class="followbutton">
-        <button class="button">Edit Bio</button>
+        <button class="button" data-toggle="modal" data-target="#modalRegisterForm">Edit Bio</button>
         <button class="button">Follow</button>
       </div>
-      {{!-- <div class="biobutton">
-        <button class="button">Edit Bio</button>
-      </div> --}}
+
+
+
     </div>
     <div class="card">
       {{#each user.posts as |post|}}
@@ -33,5 +74,6 @@
     </div>
   </div>
 </div>
+
 
 <script src="/js/post.js"></script>
