@@ -1,4 +1,4 @@
-<div class="row">
+<div data-aos="fade-up" class="row">
   <div class="leftcolumn">
     <div class="card">
 
@@ -7,20 +7,24 @@
       <div>{{user.fav_pokemon}}</div>
       <div>{{user.fav_game}}</div>
 
-      {{!-- <div class="favimg">or</div><br>
       <div class="favimg">String</div><br>
       <div class="favimg">of the User's</div><br>
       <div class="favimg">Favorite</div><br>
-      <div class="favimg">Pokemon</div> --}}
+      <div class="favimg">Pokemon</div>
 
       <form class="newpost" >
-        <input name = "titleName" type="text" placeholder="Title"><br>
-        <input name="postBody" type="text" placeholder="What's on your mind?"><br>
-        <button>New Post</button>
-      </form>
+        <p></p>
+        <input class="button" name = "titleName" type="text" placeholder="Title"><br>
+        <input class="button" name="postBody" type="text" placeholder="What's on your mind?"><br>
+        <button class="button">New Post</button>
+      </form><br>
       <div class="followbutton">
-        <button>Follow</button>
+        <button class="button">Edit Bio</button>
+        <button class="button">Follow</button>
       </div>
+      {{!-- <div class="biobutton">
+        <button class="button">Edit Bio</button>
+      </div> --}}
     </div>
     <div class="card">
       {{#each user.posts as |post|}}
