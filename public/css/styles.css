@@ -86,7 +86,7 @@
     /* background-color: #cfc ; */
   }
 
-  .button {
+  .button, .commentBtn {
     border-radius: 12px;
   }
 
@@ -97,7 +97,28 @@
   .navstyle {
     color: white;
   }
-  
+
+  .postUsername {
+    font-size: large;
+    text-decoration: underline;
+  }
+
+  .commentBtn {
+    width: 20%;
+    
+  }
+
+  /* Comment Button Responsiveness */
+  @media screen and (max-width: 600px) {
+    .commentBtn{
+      font-size: 2vw;
+    }
+  }
+  @media screen and (max-width: 300px) {
+    .commentBtn{
+      font-size: 1vw;
+    }
+  }
 
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 800px) {
