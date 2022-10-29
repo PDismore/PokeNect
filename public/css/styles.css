@@ -77,11 +77,12 @@
   a {
     color: black;
     background-color: transparent;
-    /* text-decoration: underline; */
+    
   }
 
   a:hover {
-    color: blue;
+    color: gray;
+    text-decoration: underline; 
     /* background-color: #cfc ; */
   }
 

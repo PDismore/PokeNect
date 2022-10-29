@@ -33,7 +33,7 @@
         {{#if loggedIn}}
         <a class="navstyle nav-link" id="logout" href="/">Logout</a>
         <li class="nav-item">
-          <a class="navstyle nav-link" href="/user/{{sessionId}}">Profile</a>
+          <a class="navstyle nav-link" href="/user/{{sessionId}}">{{sessionUsername}}</a>
         </li>
         {{else}}
         <a class="nav-link" href="/login">Login</a>

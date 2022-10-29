@@ -18,18 +18,31 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((userDbData) => {
-      // console.log(userDbData)
+  .then((userDbData) => {
+    let myProfile = true;
+      if (req.session.user_id === parseInt(req.params.id)) {
+        myProfile = true
+      } else {
+        myProfile = false
+      }
+
+    return {
+      myProfile,
+      userDbData
+    }
+  })
+    .then(({userDbData, myProfile}) => {
       if (!userDbData) {
         res.status(404).json({ message: "post not found" });
         return;
       }
       const user = userDbData.get({ plain: true });
-      console.log(user);
       res.render("userpage", {
         user,
         loggedIn: req.session.loggedIn,
         sessionId: req.session.user_id,
+        sessionUsername: req.session.username,
+        myProfile
       });
     })
     .catch((err) => {
