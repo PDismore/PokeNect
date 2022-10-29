@@ -10,32 +10,48 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
-        attributes: [
-          "post_body",
-          "post_title",
-          "createdAt"
+        separate: true,
+        attributes: ["post_body", "post_title", "createdAt", "id"],
+        order: [
+          ['created_at', 'DESC']
         ],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ["username", "id"],
+        },
       },
     ],
   })
   .then((userDbData) => {
-      // console.log(userDbData)
+    let myProfile = true;
+      if (req.session.user_id === parseInt(req.params.id)) {
+        myProfile = true
+      } else {
+        myProfile = false
+      }
+
+    return {
+      myProfile,
+      userDbData
+    }
+  })
+    .then(({userDbData, myProfile}) => {
       if (!userDbData) {
         res.status(404).json({ message: "post not found" });
         return;
       }
       const user = userDbData.get({ plain: true });
-      console.log(user)
-      res.render("userpage", { user, loggedIn: req.session.loggedIn });
+      res.render("userpage", {
+        user,
+        loggedIn: req.session.loggedIn,
+        sessionId: req.session.user_id,
+        sessionUsername: req.session.username,
+        myProfile
+      });
     })
     .catch((err) => {
       console.log(err), res.status(500).json(err);
     });
 });
-
 
 module.exports = router;

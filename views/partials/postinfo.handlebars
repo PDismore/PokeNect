@@ -1,9 +1,10 @@
 
-<div class="card">
-        <h2>{{post_title}}</h2>
-        <h5>{{createdAt}}</h5>
-        <div>{{user.username}}</div>
+<div data-aos="fade-up" class="card" >
+        <h3>{{post_title}}</h3>
+        <h5>{{format_date createdAt}}</h5>
+        <a href="/user/{{user.id}}">{{user.username}}</a>
         {{!-- for user avatar --}}
         {{!-- <div class="useravatar" style="height:25px; width: 25px;"></div> --}}
         <p>{{post_body}}</p>
+        <a href="/post/{{id}}"> comments </a>
 </div>

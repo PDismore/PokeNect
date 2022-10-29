@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:username", (req, res) => {
   User.findOne({
     include: [
       {
@@ -19,7 +19,7 @@ router.get("/:id", (req, res) => {
       },
     ],
     where: {
-      id: req.params.id,
+      username: req.params.username,
     },
   })
     .then((userDbData) => {
@@ -85,11 +85,11 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {
+router.put("/", (req, res) => {
   User.update(req.body, {
     individualHooks: true,
     where: {
-      id: req.params.id,
+      id: req.session.user_id,
     },
   })
     .then((dbUserData) => {

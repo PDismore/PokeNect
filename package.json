@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/PDismore/PokeNect#readme",
   "dependencies": {
+    "aos": "^2.3.4",
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",

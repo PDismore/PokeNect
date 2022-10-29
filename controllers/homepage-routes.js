@@ -3,26 +3,40 @@ const sequelize = require("../config/connection");
 const { Post, User, Comment } = require("../models");
 
 router.get("/", (req, res) => {
-  Post.findAll({
+ Post.findAll({
+  order: [
+    ['createdAt', 'DESC']
+  ],
     include: [
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["username", "id"],
       },
     ],
-  })
+  }) 
     .then((postDbData) => {
       const posts = postDbData.map((post) => post.get({ plain: true }));
-      res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+      res.render("homepage", {
+        posts,
+        loggedIn: req.session.loggedIn,
+        sessionId: req.session.user_id,
+        sessionUsername: req.session.username
+      });
     })
     .catch((err) => {
       console.log(err), res.status(500).json(err);
     });
 });
 
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.render("/");
+    return;
+  }
+  res.render("loginpage");
+});
 
-
-router.get("/:id", (req, res) => {
+router.get("/post/:id", (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id,
@@ -30,15 +44,15 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
+        attributes: ["id", "comment_text", "createdAt"],
         include: {
           model: User,
-          attributes: ["username"],
+          attributes: ["username", "id"],
         },
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["username", "id"],
       },
     ],
   })
@@ -48,7 +62,12 @@ router.get("/:id", (req, res) => {
         return;
       }
       const post = postDbData.get({ plain: true });
-      res.render("single", { post, loggedIn: req.session.loggedIn });
+      res.render("single-post", {
+        post,
+        loggedIn: req.session.loggedIn,
+        sessionId: req.session.user_id,
+        sessionUsername: req.session.username
+      });
     })
     .catch((err) => {
       console.log(err), res.status(500).json(err);
