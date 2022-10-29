@@ -10,7 +10,11 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
+        separate: true,
         attributes: ["post_body", "post_title", "createdAt", "id"],
+        order: [
+          ['created_at', 'DESC']
+        ],
         include: {
           model: User,
           attributes: ["username", "id"],
