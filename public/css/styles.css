@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f1f1f1;
+  }
+  
+  /* Header */
+  .header {
+    padding: 60px;
+    font-size: 40px;
+    text-align: center;
+    background-image: url(../images/TestHeaderBackground2.PNG);
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {
+    float: left;
+    width: 75%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+  }
+
+  .postcolumn {
+    /* margin: 0 20 0 50; */
+    padding: 10px;
+    width: 75%;
+  }
+  
+  /* User Avatar/ favorites test styling */
+  .useravatar, .favimg{
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Styles for follow button */
+  /* .followbutton {
+    
+  } */
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+  
+  .followbutton {
+    margin-left: auto;
+  }
+
+  a {
+    color: black;
+    background-color: transparent;
+    
+  }
+
+  a:hover {
+    color: gray;
+    text-decoration: underline; 
+    /* background-color: #cfc ; */
+  }
+
+  .button {
+    border-radius: 12px;
+  }
+
+  .postfield {
+    width: 75%;
+    height: 150px;
+  }
+  .navstyle {
+    color: white;
+  }
+  
+
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
