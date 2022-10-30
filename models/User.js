@@ -6,6 +6,12 @@ class User extends Model {
   verifyPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
+  static follow(body, models) {
+    return models.Follower.create({
+      follower_id: body.follower_id,
+      followed_id: body.followed_id
+    })
+  }
 }
 
 User.init(
