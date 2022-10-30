@@ -5,11 +5,7 @@ const { Op } = require("sequelize");
 
 
 router.get('/', (req, res) => {
-    Follower.findAll({
-        where: {
-            follower_id: req.body.follower_id
-        }
-    })
+    Follower.findAll({})
     .then(dbFollowData => res.json(dbFollowData))
         .catch(err => {
           console.log(err);
@@ -17,7 +13,7 @@ router.get('/', (req, res) => {
         });
 })
 
-router.get('/test', (req, res) => {
+router.get('/followPost', (req, res) => {
     Follower.findAll({
         where: {
             follower_id: req.body.follower_id
@@ -26,10 +22,10 @@ router.get('/test', (req, res) => {
     .then(resultData => resultData.map(res => res.followed_id))
     // .then(testdata => console.log(testdata))
     // const foundFollowers = firstSeach.map(res => res.followed_id)
-    .then(anotherTest => Post.findAll({
+    .then(mappedData => Post.findAll({
         where: {
             user_id: {
-                [Op.in]: anotherTest
+                [Op.in]: mappedData
             }
         }
     }))
