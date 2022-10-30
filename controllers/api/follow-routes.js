@@ -38,7 +38,7 @@ router.get('/followPost', (req, res) => {
 
 router.put('/', (req, res) => {
     // pass session id along with all destructured properties on req.body
-    User.follow({ ...req.body }, { Follower, User })
+    User.follow({ ...req.body, follower_id: req.session.user_id }, { Follower, User })
       .then(updatedVoteData => res.json(updatedVoteData))
       .catch(err => {
         console.log(err);
