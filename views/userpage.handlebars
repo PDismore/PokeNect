@@ -42,9 +42,18 @@
     <div class="card">
 
       <h2>{{user.username}}</h2>
+      {{#if user.about_me}}
+      <h3>About Me</h3>
       <p>{{user.about_me}}</p>
+      {{/if}}
+      {{#if user.fav_pokemon}}
+      <h3>Favorite Pokemon</h3>
       <div>{{user.fav_pokemon}}</div>
+      {{/if}}
+      {{#if user.fav_game}}
+      <h3>Favorite Game</h3>
       <div>{{user.fav_game}}</div>
+      {{/if}}
 
       {{!-- <div class="favimg">String</div><br>
       <div class="favimg">of the User's</div><br>
