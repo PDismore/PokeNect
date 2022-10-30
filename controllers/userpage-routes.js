@@ -2,6 +2,7 @@ const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User } = require("../models");
 const Follower = require("../models/Follower");
+const { follow } = require("../models/User");
 
 router.get("/:id", async function (req, res) {
   const userDbData = await User.findOne({
@@ -23,12 +24,15 @@ router.get("/:id", async function (req, res) {
       },
     ],
   });
-  const following = await Follower.findOne({
-    where: {
-      follower_id: req.session.user_id,
-      followed_id: req.params.id
-    }
-  });
+  let following = null
+  if(req.session.user_id) {
+    following = await Follower.findOne({
+      where: {
+        follower_id: req.session.user_id,
+        followed_id: req.params.id
+      }
+    });
+  }
   let myProfile = true;
   if (req.session.user_id === parseInt(req.params.id)) {
     myProfile = true

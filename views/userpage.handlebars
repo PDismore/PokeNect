@@ -73,6 +73,7 @@
       </div>
       {{/if}}
       {{#unless myProfile}}
+      {{#if loggedIn}}
       {{#if following}}
       <div class="followbutton">
         <button class="button" id="unfollow-btn">Unfollow</button>
@@ -81,6 +82,7 @@
       <div class="followbutton">
         <button class="button" id="follow-btn">Follow</button>
       </div>
+      {{/if}}
       {{/if}}
       {{/unless}}
       
