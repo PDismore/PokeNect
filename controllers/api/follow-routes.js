@@ -47,5 +47,25 @@ router.put('/', (req, res) => {
   
 });
 
+router.delete('/', (req, res) => {
+    Follower.destroy({
+        where: {
+            follower_id: req.session.user_id,
+            followed_id: req.body.followed_id
+        }
+    })
+    .then(dbFollowData => {
+        if (!dbFollowData) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
+        }
+        res.json(dbFollowData)
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 module.exports = router;
 

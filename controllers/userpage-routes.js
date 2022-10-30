@@ -29,14 +29,6 @@ router.get("/:id", async function (req, res) {
       followed_id: req.params.id
     }
   });
-  console.log("==============================================")
-  console.log(following)
-  console.log("==============================================")
-  console.log(userDbData)
-  // return {
-  //   following,
-  //   userDbData
-  // }
   let myProfile = true;
   if (req.session.user_id === parseInt(req.params.id)) {
     myProfile = true
