@@ -70,18 +70,25 @@
       </form><br>
       <div class="followbutton">
         <button class="button" data-toggle="modal" data-target="#modalRegisterForm">Edit Bio</button>
-        <button class="button">Follow</button>
       </div>
       {{/if}}
+      {{#unless myProfile}}
+      <div class="followbutton">
+        <button class="button">Follow</button>
+      </div>
+      {{/unless}}
+      
 
 
 
     </div>
+    {{#if user.posts}}
     <div class="card">
       {{#each user.posts as |post|}}
       {{>postinfo post}}
       {{/each}}
     </div>
+    {{/if}}
   </div>
 </div>
 
