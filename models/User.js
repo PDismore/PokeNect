@@ -6,6 +6,12 @@ class User extends Model {
   verifyPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
+  static follow(body, models) {
+    return models.Follower.create({
+      follower_id: body.follower_id,
+      followed_id: body.followed_id
+    })
+  }
 }
 
 User.init(
@@ -29,6 +35,7 @@ User.init(
     },
     profile_pic: {
       type: DataTypes.STRING,
+      defaultValue: "OIP.jfif"
     },
     about_me: {
       type: DataTypes.STRING(255),
@@ -45,14 +52,6 @@ User.init(
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
-      },
-
-      async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
-        return updatedUserData;
       },
     },
     sequelize,

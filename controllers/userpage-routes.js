@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User } = require("../models");
+const Follower = require("../models/Follower");
+const { follow } = require("../models/User");
 
-router.get("/:id", (req, res) => {
-  User.findOne({
+router.get("/:id", async function (req, res) {
+  const userDbData = await User.findOne({
     where: {
       id: req.params.id,
     },
@@ -21,37 +23,39 @@ router.get("/:id", (req, res) => {
         },
       },
     ],
-  })
-  .then((userDbData) => {
-    let myProfile = true;
-      if (req.session.user_id === parseInt(req.params.id)) {
-        myProfile = true
-      } else {
-        myProfile = false
+  });
+  let following = null
+  if(req.session.user_id) {
+    following = await Follower.findOne({
+      where: {
+        follower_id: req.session.user_id,
+        followed_id: req.params.id
       }
-
-    return {
-      myProfile,
-      userDbData
-    }
-  })
-    .then(({userDbData, myProfile}) => {
-      if (!userDbData) {
-        res.status(404).json({ message: "post not found" });
-        return;
-      }
-      const user = userDbData.get({ plain: true });
-      res.render("userpage", {
-        user,
-        loggedIn: req.session.loggedIn,
-        sessionId: req.session.user_id,
-        sessionUsername: req.session.username,
-        myProfile
-      });
-    })
-    .catch((err) => {
-      console.log(err), res.status(500).json(err);
     });
-});
+  }
+  let myProfile = true;
+  if (req.session.user_id === parseInt(req.params.id)) {
+    myProfile = true
+  } else {
+    myProfile = false
+  }
+  if (!userDbData) {
+    res.status(404).json({ message: "post not found" });
+    return;
+  }
+  const user = userDbData.get({ plain: true });
+  res.render("userpage", {
+    user,
+    loggedIn: req.session.loggedIn,
+    sessionId: req.session.user_id,
+    sessionUsername: req.session.username,
+    myProfile,
+    following
+  });
+})
+  // .catch((err) => {
+  //   console.log(err), res.status(500).json(err);
+  // });
+
 
 module.exports = router;
