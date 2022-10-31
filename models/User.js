@@ -35,6 +35,7 @@ User.init(
     },
     profile_pic: {
       type: DataTypes.STRING,
+      defaultValue: "OIP.jfif"
     },
     about_me: {
       type: DataTypes.STRING(255),
