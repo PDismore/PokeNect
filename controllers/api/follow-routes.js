@@ -20,8 +20,6 @@ router.get('/followPost', (req, res) => {
         }
     })
     .then(resultData => resultData.map(res => res.followed_id))
-    // .then(testdata => console.log(testdata))
-    // const foundFollowers = firstSeach.map(res => res.followed_id)
     .then(mappedData => Post.findAll({
         where: {
             user_id: {

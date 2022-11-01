@@ -4,9 +4,6 @@ async function postFormHandler(event) {
   const post_title = document
     .querySelector('input[name="titleName"]')
     .value.trim();
-  const user_id = window.location.toString().split("/")[
-    window.location.toString().split("/").length - 1
-  ];
   const post_body = document
     .querySelector('textarea[name="postBody"]')
     .value.trim();

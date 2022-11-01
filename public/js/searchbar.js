@@ -10,7 +10,6 @@ async function searchUser(event) {
                     console.log(data)
                     document.location.replace(`/user/${data.id}`);
                 })
-                console.log('hi');
             } else {
                 alert(response.statusText);
             }

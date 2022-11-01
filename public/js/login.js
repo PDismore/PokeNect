@@ -24,7 +24,6 @@ async function loginFormHandler(event) {
   
   async function signupFormHandler(event) {
     event.preventDefault();
-    console.log("hi")
   
     const username = document.querySelector('.createId').value.trim();
     const password = document.querySelector('.createPass').value.trim();

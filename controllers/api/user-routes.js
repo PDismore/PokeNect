@@ -2,8 +2,9 @@ const router = require("express").Router();
 const { User, Post } = require("../../models");
 
 router.get("/", (req, res) => {
-  //COME BACK AND EXCLUDE PASSWORD IN RESPONSE
-  User.findAll()
+  User.findAll({
+    attributes: { exclude: ['password'] }
+  })
     .then((userDbData) => res.json(userDbData))
     .catch((err) => {
       console.log(err), res.status(500).json(err);
@@ -12,6 +13,7 @@ router.get("/", (req, res) => {
 
 router.get("/:username", (req, res) => {
   User.findOne({
+    attributes: { exclude: ['password'] },
     include: [
       {
         model: Post,

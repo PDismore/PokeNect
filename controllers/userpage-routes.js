@@ -2,7 +2,7 @@ const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User } = require("../models");
 const Follower = require("../models/Follower");
-const { follow } = require("../models/User");
+
 
 router.get("/:id", async function (req, res) {
   const userDbData = await User.findOne({
@@ -24,6 +24,7 @@ router.get("/:id", async function (req, res) {
       },
     ],
   });
+  // check if user in session is following the user on the page they are viewing
   let following = null
   if(req.session.user_id) {
     following = await Follower.findOne({
@@ -33,6 +34,7 @@ router.get("/:id", async function (req, res) {
       }
     });
   }
+  //check if current profile page is the session users profile
   let myProfile = true;
   if (req.session.user_id === parseInt(req.params.id)) {
     myProfile = true
@@ -53,9 +55,6 @@ router.get("/:id", async function (req, res) {
     following
   });
 })
-  // .catch((err) => {
-  //   console.log(err), res.status(500).json(err);
-  // });
 
 
 module.exports = router;
